@@ -1,5 +1,3 @@
-package mytime;
-
 import java.util.Scanner;
 
 public class Damo {

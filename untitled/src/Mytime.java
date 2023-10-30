@@ -1,6 +1,4 @@
-package mytime;
-
-    public class Mytime {
+public class Mytime {
         private  int day;
         private int hour;
         private int minute;
