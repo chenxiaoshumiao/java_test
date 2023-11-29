@@ -1,0 +1,10 @@
+package experiment4;
+import javax.swing.*;
+public class MsgManage {
+	JLabel lab11;//显示一行文字
+	JTextArea taContent;//多行文字
+	JComboBox cbExp;//下拉列表
+	JTextField txtMsgSE;//单行文本
+	JButton btnDeletAll,btnDeletSet,btnSave;
+
+}

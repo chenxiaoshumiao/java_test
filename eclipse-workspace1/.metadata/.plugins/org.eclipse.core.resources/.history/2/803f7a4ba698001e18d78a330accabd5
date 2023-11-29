@@ -1,0 +1,84 @@
+package experiment4;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.*;
+public class MsgManage  extends JFrame  implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JLabel lab11,lab12;//显示一行文字
+	JTextArea SEMsg;//多行文字
+	JComboBox cbExp;//下拉列表
+	JTextField txtMsgSE;//单行文本
+	JButton btnDeletAll,btnDeletSet,btnSave,btnFind;
+	int conut=0;
+
+public MsgManage (String title) {
+	super(title);//设置标题
+	this.setSize(800,600);
+	this.Manage();
+}
+public void load() {
+	try {
+		BufferedReader bR=new BufferedReader(new FileReader("Msg.txt"));
+		String msgLine="";
+		
+		while((msgLine=bR.readLine())!=null) {
+			if(msgLine.contains(txtMsgSE.getText())||txtMsgSE==null){
+				SEMsg.insert(msgLine+"\n",6);
+				conut++;
+			}else {
+				cbExp.addItem(msgLine);	
+			}
+			
+		}
+		bR.close();
+	}catch(IOException e1) {
+		System.out.println("文件打开失败"+e1);
+    }
+}
+public void Manage() {
+	JScrollPane scrol2=new JScrollPane(SEMsg);
+	SEMsg.setEditable(false);
+	JComboBox cb1= new JComboBox();;
+	lab11=new JLabel("请输入");
+	lab12=new JLabel("共"+conut+"条留言");
+	txtMsgSE=new JTextField(25);
+	btnDeletAll=new JButton("删除所有");
+	btnDeletSet=new JButton("删除选择");
+	btnSave=new JButton("保存");
+	btnFind=new JButton("查询");
+	btnFind.addActionListener(this);
+	JPanel pEast=new JPanel();//包含按钮和标签的东方面板
+	pEast.setLayout(new GridLayout(8,1,0,30));
+	pEast.add(btnDeletSet);
+	pEast.add(btnDeletAll);
+	pEast.add(btnSave);
+	JPanel pNorth=new JPanel();
+	pNorth.add(lab11);
+	pNorth.add(txtMsgSE);
+	pNorth.add(btnFind);
+	pNorth.add(lab12);
+	add(cb1,"South");
+	add(pNorth,"North");
+    add(pEast,"East");
+    add(scrol2,"Center");
+	
+}
+
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	if(e.getActionCommand().equals("查询")) {
+		this.load();
+		}
+}
+}

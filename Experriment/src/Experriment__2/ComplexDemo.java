@@ -17,7 +17,7 @@ public class ComplexDemo {
      Complex c2=new Complex(3,4);
      System.out.println("c1="+c1);
      System.out.println("c2="+c2);
-     Complex c3=c1.complexAdd(c2);
+     Complex c3= c2.complexAdd(c1);
      System.out.println("c1+c2="+c3);
      c3=c1.complexSub(c2);
      System.out.println("c1-c2="+c3);

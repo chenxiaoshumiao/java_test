@@ -1,0 +1,46 @@
+package experiment4;
+import java.awt.GridLayout;
+
+import javax.swing.*;
+public class MsgManage  extends JFrame {
+	JLabel lab11,lab12;//显示一行文字
+	JTextArea taContent;//多行文字
+	JComboBox cbExp;//下拉列表
+	JTextField txtMsgSE,txtNumMsg;//单行文本
+	JButton btnDeletAll,btnDeletSet,btnSave,btnFind;
+
+public MsgManage (String title) {
+	super(title);//设置标题
+	this.setSize(800,600);
+	this.Manage();
+}
+public void Manage() {
+	JScrollPane scroll=new JScrollPane(taContent);
+	JComboBox cb1= new JComboBox();;
+	lab11=new JLabel("请输入");
+	int n=0;
+	lab12=new JLabel("共"+n+"条留言");
+	txtMsgSE=new JTextField(25);
+	txtNumMsg=new JTextField(25);
+	txtNumMsg.setEditable(false);
+	btnDeletAll=new JButton("删除所有");
+	btnDeletSet=new JButton("删除选择");
+	btnSave=new JButton("保存");
+	btnFind=new JButton("查询");
+	JPanel pEast=new JPanel();//包含按钮和标签的东方面板
+	pEast.setLayout(new GridLayout(8,1,0,30));
+	pEast.add(btnDeletSet);
+	pEast.add(btnDeletAll);
+	pEast.add(btnSave);
+	JPanel pNorth=new JPanel();
+	pNorth.add(lab11);
+	pNorth.add(txtMsgSE);
+	pNorth.add(btnFind);
+	pNorth.add(lab12);
+	add(cb1,"South");
+	add(pNorth,"North");
+    add(pEast,"East");
+    add(scroll,"Center");
+	
+}
+}
