@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="eclipse-workspace1/实验/src"/>
+	<classpathentry kind="src" path="Experriment/src"/>
+	<classpathentry kind="src" path="java_studybook/src"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="test/" kind="src" path="Tess/src"/>
+	<classpathentry kind="src" path="Tess/src/test"/>
+	<classpathentry kind="src" path="untitled/src"/>
+	<classpathentry kind="output" path="Experriment/out/production/Experriment"/>
+</classpath>
